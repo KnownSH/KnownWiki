@@ -1,0 +1,40 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+  image: any,
+  alt: string,
+  description: string,
+  width: number
+}
+
+const { image, alt, description, width } = Astro.props;
+---
+<style lang="scss">
+  .mediaviewer {
+    .mv-image {
+      max-width: calc(100% - (2 * 3px) - (2 * 1px));
+      height: auto;
+      margin: 3px;
+    }
+
+    figcaption {
+      margin: 3px;
+      font-size: 0.9em;
+    }
+
+    margin: 0.5em 0 1.3em 1.4em;
+    clear: right;
+    float: right;
+    min-width: 100px;
+    border: 1px solid rgb(69, 71, 90);
+    background-color: rgb(24, 24, 37);
+  }
+</style>
+
+<figure id="image-view" class="mediaviewer">
+  <a href={image.src}>
+    <Image class="mv-image" src={image} alt={alt} width={width} loading="lazy" decoding="async"/>
+  </a>
+  <figcaption>{description}</figcaption>
+</figure>

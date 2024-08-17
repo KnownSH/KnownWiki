@@ -1,0 +1,56 @@
+.infobox {
+  @apply lg:float-right lg:my-2 lg:ml-4;
+  clear: right;
+  width: 22em;
+  border: 1px solid rgb(69, 71, 90);
+  background: rgb(24, 24, 37);
+  padding: 0.2em;
+  border-spacing: 3px;
+  font-size: 88%;
+  line-height: 1.5em
+}
+
+.infobox-title {
+  background: inherit !important;
+  font-weight: bold;
+  text-align: center;
+  padding: 0.2em;
+}
+
+.infobox-image {
+  text-align: center;
+  vertical-align: middle;
+  width: 300px;
+  box-sizing: border-box;
+}
+
+.infobox-label {
+  padding-left: 5px;
+  text-align: left;
+  vertical-align: top;
+  font-weight: 600;
+}
+
+.infobox-data {
+  vertical-align: top;
+  text-align: left;
+  margin: 10px;
+  
+  a {
+    font-weight: 500;
+  }
+}
+
+caption {
+  display: table-caption;
+}
+
+table {
+  border-collapse: separate;
+}
+
+tbody {
+  display: table-row-group;
+  vertical-align: middle;
+  border-color: inherit;
+}

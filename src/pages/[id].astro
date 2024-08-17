@@ -1,0 +1,69 @@
+---
+import Base from "../layouts/base.astro"
+import Header from "../layouts/header.astro"
+import Sidebar from "../components/sidebar.astro"
+import '../styles/markdown.scss'
+
+interface Article {
+  frontmatter: {
+    title: string;
+  },
+  Content: any,
+}
+
+export async function getStaticPaths() {
+  const articles: Article[] = await Astro.glob<Article>('../content/articles/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}')
+
+  return articles.map(article => ({
+    params: {
+      id: article.frontmatter.title,
+    },
+    props: {
+      article,
+      title: article.frontmatter.title,
+    },
+  }))
+}
+
+const { Content } = Astro.props.article;
+const { title } = Astro.props;
+---
+<Base title={title}>
+  <Fragment name="head">
+    <meta content="KnownWiki" property="og:site_name" />
+    <meta content={title} property="og:title" />
+    <!--meta content={album.data.description} property="og:description" /-->
+    <!--meta content={album.data.cover.src} property="og:image" /-->
+    <!--meta property="og:image:width" content={`${album.data.cover.width}`} /-->
+    <!--meta property="og:image:height" content={`${album.data.cover.height}`} /-->
+    <meta content={`/${title}`} property="og:url" />
+    <meta content="#ff8495" data-react-helmet="true" name="theme-color" />
+  </Fragment>
+	<Header />
+	<div class="page-container">
+		<Sidebar />
+		<div class="markdown md:ml-64 p-5 pl-10 text-text transition-transform ">
+			<article>
+        <Content />
+      </article>
+		</div>
+	</div>
+</Base>
+<script>
+  import 'photoswipe/style.css'
+  import pswpModule from 'photoswipe'
+  import PhotoSwipeLightbox from 'photoswipe/lightbox'
+
+  const lightbox = new PhotoSwipeLightbox({
+    pswpModule,
+    children: 'a',
+    gallery: '#image-view',
+  })
+
+  document.addEventListener(
+    'astro:page-load',
+    () => { if (lightbox) lightbox.init() },
+    { once: false },
+  )
+</script>
+
