@@ -3,7 +3,7 @@ import { Image } from "astro:assets";
 
 interface Props {
   image: any,
-  alt: string,
+  alt?: string,
   description: string,
   width: number
 }
@@ -34,7 +34,7 @@ const { image, alt, description, width } = Astro.props;
 
 <figure id="image-view" class="mediaviewer">
   <a href={image.src} data-pswp-width={image.width} data-pswp-height={image.height}>
-    <Image class="mv-image" src={image} alt={alt} width={width} loading="lazy" decoding="async" format="avif" quality={50}/>
+    <Image class="mv-image" src={image} alt={alt ?? description} width={width} loading="lazy" decoding="async" format="avif" quality={50}/>
   </a>
-  <figcaption>{description}</figcaption>
+  <figcaption set:html={description} />
 </figure>

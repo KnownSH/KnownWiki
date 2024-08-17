@@ -3,14 +3,15 @@ import { Image } from "astro:assets";
 interface Props {
   image: ImageMetadata,
   alt: string,
+  width?: number,
 }
-const { image, alt } = Astro.props;
+const { image, alt, width } = Astro.props;
 ---
 <tr>
   <td colspan="2" class="infobox-image">
     <span id="image-view">
       <a href={image.src} data-pswp-width={image.width} data-pswp-height={image.height}>
-        <Image src={image} alt="e"/>
+        <Image src={image} alt="e" width={width}/>
       </a>
     </span>
     <div class="infobox-caption" set:html={alt} />

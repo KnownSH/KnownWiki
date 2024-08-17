@@ -23,5 +23,8 @@ div { @apply block }
 }
 
 .infobox-image {
+  img {
+    @apply m-auto
+  }
   @apply text-center align-top;
 }
