@@ -33,8 +33,8 @@ const { image, alt, description, width } = Astro.props;
 </style>
 
 <figure id="image-view" class="mediaviewer">
-  <a href={image.src}>
-    <Image class="mv-image" src={image} alt={alt} width={width} loading="lazy" decoding="async"/>
+  <a href={image.src} data-pswp-width={image.width} data-pswp-height={image.height}>
+    <Image class="mv-image" src={image} alt={alt} width={width} loading="lazy" decoding="async" format="avif" quality={50}/>
   </a>
   <figcaption>{description}</figcaption>
 </figure>

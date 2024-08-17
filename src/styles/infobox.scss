@@ -1,56 +1,27 @@
+table { @apply table border-separate box-border indent-[initial] }
+tbody { @apply table-row-group align-middle border-inherit }
+caption { @apply table-caption }
+tr { @apply table-row border-inherit }
+th { @apply text-left !border-surface0 !bg-inherit !text-inherit align-top table-cell font-bold }
+td { @apply table-cell !bg-inherit !text-inherit !border-surface0}
+div { @apply block }
+
 .infobox {
-  @apply lg:float-right lg:my-2 lg:ml-4;
-  clear: right;
-  width: 22em;
-  border: 1px solid rgb(69, 71, 90);
-  background: rgb(24, 24, 37);
-  padding: 0.2em;
-  border-spacing: 3px;
-  font-size: 88%;
-  line-height: 1.5em
+  @apply bg-crust border-surface0 border-[1px] border-solid border-spacing-1 text-[88%] md:float-right md:clear-right p-[0.2em] w-[22em] my-2 md:ml-4;
 }
 
 .infobox-title {
-  background: inherit !important;
-  font-weight: bold;
-  text-align: center;
-  padding: 0.2em;
+  @apply text-[125%] font-bold !bg-inherit !text-inherit text-center p-1;
+}
+
+.infobox-label, th {
+  @apply text-left align-top;
+}
+
+.infobox-data, td {
+  @apply text-left align-top;
 }
 
 .infobox-image {
-  text-align: center;
-  vertical-align: middle;
-  width: 300px;
-  box-sizing: border-box;
-}
-
-.infobox-label {
-  padding-left: 5px;
-  text-align: left;
-  vertical-align: top;
-  font-weight: 600;
-}
-
-.infobox-data {
-  vertical-align: top;
-  text-align: left;
-  margin: 10px;
-  
-  a {
-    font-weight: 500;
-  }
-}
-
-caption {
-  display: table-caption;
-}
-
-table {
-  border-collapse: separate;
-}
-
-tbody {
-  display: table-row-group;
-  vertical-align: middle;
-  border-color: inherit;
+  @apply text-center align-top;
 }

@@ -1,0 +1,15 @@
+---
+interface Props {
+  title: string,
+  alt: string,
+}
+const {title, alt} = Astro.props;
+---
+<tr>
+  <th scope="row" class="infobox-label">
+    {title}
+  </th>
+  <td>
+    <div set:html={alt} />
+  </td>
+</tr>
