@@ -4,6 +4,7 @@
     "src/mdx.d.ts"
   ],
   "compilerOptions": {
+    "allowImportingTsExtensions": true,
     "jsx": "react-jsx",
     "jsxImportSource": "react",
     "baseUrl": ".",
