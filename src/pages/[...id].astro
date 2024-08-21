@@ -1,0 +1,34 @@
+---
+import Article from "../layouts/article.astro"
+import '../styles/markdown.scss'
+
+interface Article {
+  frontmatter: {
+    title: string,
+    slug: string,
+    description?: string,
+  },
+  Content: any,
+}
+
+export async function getStaticPaths() {
+  const articles: Article[] = await Astro.glob<Article>('../content/articles/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}')
+  return articles.map(article => ({
+    params: {
+      id: article.frontmatter.slug,
+    },
+    props: {
+      article,
+      title: article.frontmatter.title,
+      description: article.frontmatter.description,
+    },
+  }))
+}
+
+const { title, article, description } = Astro.props;
+const { Content } = article;
+---
+<Article title={title} article={article} description={description} slug={article.frontmatter.slug}>
+  <Content />
+</Article>
+

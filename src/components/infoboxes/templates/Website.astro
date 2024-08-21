@@ -1,0 +1,35 @@
+---
+// Port of https://en.wikipedia.org/wiki/Template:Infobox_website
+import {ImageCaption, Infobox, Label} from "../../kw-Infobox.astro";
+
+interface Props {
+  name: string,
+  logo?: {
+    logo: ImageMetadata,
+    logoSize?: number,
+    logoAlt: string,
+  },
+  formerName?: string,
+  type?: {
+    type: "website" | "business",
+    name: string
+  },
+  url?: string,
+  launchDate?: string,
+  programmingLanguage?: string,
+}
+
+const { name, logo, formerName, type, launchDate, url, programmingLanguage } = Astro.props;
+---
+<Infobox title={name}>
+  {logo && <ImageCaption 
+    image={logo.logo} 
+    alt={logo.logoAlt}
+    width={logo.logoSize}
+  />}
+  {formerName && <Label title="Formerly" alt={formerName}/>}
+  {type && <Label title={type.type == "website" ? "Type of site" : "Type of business"} alt={type.name}/>}
+  {url && <Label title="URL" alt={url}/>}
+  {launchDate && <Label title="Launched" alt={launchDate}/>}
+  {programmingLanguage && <Label title="Written in" alt={programmingLanguage}/>}
+</Infobox>

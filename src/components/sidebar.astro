@@ -2,6 +2,7 @@
 import SidebarLink from "./sidebarLink.astro"
 import { Image } from 'astro:assets';
 import knownIcon from '../assets/KnownIcon.png'
+import knownLogo from '../assets/logo.png'
 ---
 <button data-drawer-target="default-sidebar" data-drawer-toggle="default-sidebar" aria-controls="default-sidebar" type="button" class="inline-flex top-0 items-center p-2 mt-2 ms-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
   <span class="sr-only">Open sidebar</span>
@@ -10,14 +11,21 @@ import knownIcon from '../assets/KnownIcon.png'
   </svg>
 </button>
 
+<style lang="scss">
+  $border: 1px;
+  .logos {
+    filter: drop-shadow($border $border 0 black)
+  }
+</style>
+
 <aside id="default-sidebar" class="mocha fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full md:translate-x-0" aria-label="Sidebar">
   <div class="h-full px-3 py-4 overflow-y-auto bg-crust">
-    <a href="/" class="flex m-2 space-x-3">
-      <Image src={knownIcon} alt="Icon of Known3" class="w-11 content-center" />
-      <span class="m-1">
-        <h1 class="text-rosewater hover:text-flamingo text-lg font-bold">KnownWiki</h1>
-        <p class="text-flamingo text-xs italic">Alpha</p>
+    <a href="/" class="flex m-2">
+      <span>
+        
       </span>
+      <Image src={knownLogo} alt="KnownWiki" class="logos p-3 z-10 -ml-2 content-center"/> 
+      <Image src={knownIcon} alt="Icon of Known3" class="opacity-30 w-11 -ml-10 content-center" />
     </a>
     <ul class="space-y-2 font-medium">
       <SidebarLink title="Home page" href="/" />

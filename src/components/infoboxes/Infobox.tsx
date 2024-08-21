@@ -1,3 +1,5 @@
+// this is a react component for interop reasons, don't worry about it
+
 import React from "react";
 import "../../styles/infobox.scss";
 import { type PropsWithChildren } from "react";

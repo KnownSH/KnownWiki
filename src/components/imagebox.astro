@@ -36,5 +36,5 @@ const { image, alt, description, width } = Astro.props;
   <a href={image.src} data-pswp-width={image.width} data-pswp-height={image.height}>
     <Image class="mv-image" src={image} alt={alt ?? description} width={width} loading="lazy" decoding="async" format="avif" quality={50}/>
   </a>
-  <figcaption set:html={description} />
+  <figcaption set:html={description ?? alt} />
 </figure>

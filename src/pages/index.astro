@@ -1,7 +1,18 @@
 ---
+import * as home from '.md.home.mdx';
+import Article from "../layouts/article.astro";
+
+interface Article {
+  frontmatter: {
+    title: string,
+    slug: string,
+    description?: string,
+  }
+}
+
+const allPosts: Article[] = await Astro.glob<Article>('../content/articles/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}')
 ---
-<html lang="en">
-  <head>
-    <meta http-equiv="refresh" content="0; url=/home" />
-  </head>
-</html>
+<Article title={home.frontmatter.title} article={home} description={home.frontmatter.description} slug={home.frontmatter.slug}>
+  <home.Content />
+  {allPosts.map((post) => <li><a href={post.frontmatter.slug}>{post.frontmatter.title}</a></li>)}
+</Article>

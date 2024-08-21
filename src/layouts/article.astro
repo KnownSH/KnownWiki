@@ -1,50 +1,27 @@
 ---
 import Base from "../layouts/base.astro"
 import Header from "../layouts/header.astro"
-import Sidebar from "../components/sidebar.astro"
+import Sidebar from "../components/Sidebar.astro"
 import '../styles/markdown.scss'
-
-interface Article {
-  frontmatter: {
-    title: string;
-  },
-  Content: any,
-}
-
-export async function getStaticPaths() {
-  const articles: Article[] = await Astro.glob<Article>('../content/articles/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}')
-
-  return articles.map(article => ({
-    params: {
-      id: article.frontmatter.title,
-    },
-    props: {
-      article,
-      title: article.frontmatter.title,
-    },
-  }))
-}
-
-const { Content } = Astro.props.article;
-const { title } = Astro.props;
+const { title, article, description, slug } = Astro.props;
 ---
-<Base title={title}>
+<Base title={`${title} on KnownWiki`}>
   <Fragment name="head">
     <meta content="KnownWiki" property="og:site_name" />
-    <meta content={title} property="og:title" />
-    <!--meta content={album.data.description} property="og:description" /-->
+    <meta content={`${title}`} property="og:title" />
+    {description && <meta content={description} property="og:description"/>}
     <!--meta content={album.data.cover.src} property="og:image" /-->
     <!--meta property="og:image:width" content={`${album.data.cover.width}`} /-->
     <!--meta property="og:image:height" content={`${album.data.cover.height}`} /-->
-    <meta content={`/${title}`} property="og:url" />
-    <meta content="#ff8495" data-react-helmet="true" name="theme-color" />
+    <meta content={`/${slug}`} property="og:url" />
+    <meta content="#8747C2" data-react-helmet="true" name="theme-color" />
   </Fragment>
 	<Header />
 	<div class="page-container">
 		<Sidebar />
 		<div class="markdown md:ml-64 p-5 pl-10 text-text transition-transform ">
 			<article>
-        <Content />
+        <slot />
       </article>
 		</div>
 	</div>
@@ -66,4 +43,3 @@ const { title } = Astro.props;
     { once: false },
   )
 </script>
-
