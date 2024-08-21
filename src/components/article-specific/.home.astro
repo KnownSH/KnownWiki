@@ -1,0 +1,19 @@
+---
+import ImageBox from '../imagebox.astro'
+import Image1 from '@assets/OldKnownSHSite.jpg'
+import screenshot from "@assets/KnownWikiSC.png"
+import logo from "@assets/logo.png"
+import { ImageCaption, Infobox, Label } from '../kw-Infobox.astro'
+---
+
+<Infobox title="KnownWiki">
+  <ImageCaption image={logo} alt="" width="250" />
+  <ImageCaption image={screenshot} alt="Screenshot of an early build of KnownWiki's homepage" />
+  <Label title="Type of site" alt="Wiki"/>
+  <Label title="Country of origin" alt="Canada"/>
+  <Label title="Created by" alt=`<a href="/knownsh">KnownSH</a>`/>
+  <Label title="URL" alt=`<a href="/">knownsh.cc</a>`/>
+  <Label title="Written in" alt=`<a href="https://www.typescriptlang.org/">TypeScript</a>, <a href="https://astro.build/">Astro</a>`/>
+  <Label title="Launched" alt="August 17, 2024"/>
+</Infobox>
+<ImageBox image={Image1} alt="test" description="knownsh.cc before August 16th, 2024" width={280}/>

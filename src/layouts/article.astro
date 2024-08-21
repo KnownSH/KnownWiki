@@ -3,9 +3,9 @@ import Base from "../layouts/base.astro"
 import Header from "../layouts/header.astro"
 import Sidebar from "../components/Sidebar.astro"
 import '../styles/markdown.scss'
-const { title, article, description, slug } = Astro.props;
+const { title, article, description, slug, theme } = Astro.props;
 ---
-<Base title={`${title} on KnownWiki`}>
+<Base title={`${title} on KnownWiki`} theme={theme}>
   <Fragment name="head">
     <meta content="KnownWiki" property="og:site_name" />
     <meta content={`${title}`} property="og:title" />

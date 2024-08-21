@@ -1,0 +1,13 @@
+---
+import { ImageCaption, Infobox, Label } from "@components/kw-Infobox.astro";
+import KnownPfp from "@assets/KnownPFP.jpg";
+import Imagebox from "@components/imagebox.astro";
+import OldestScreenshot from "@assets/OldestScreenshot.png"
+---
+<Infobox title="KnownSH">
+  <ImageCaption image={KnownPfp} alt="Known's profile picture on Discord <br/> (August 2024)" width={150} />
+  <Label title="Born" alt="2005 (age 19) <br/>Canada"/>
+  <Label title="Other names" alt=`Knownser<br/>Known<br/>KnownShhs`/>
+</Infobox>
+
+<Imagebox image={OldestScreenshot} description="Oldest saved Roblox screenshot by <br/> Known (Date in photo)" width={250} />

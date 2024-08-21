@@ -12,7 +12,7 @@ interface Article {
 
 const allPosts: Article[] = await Astro.glob<Article>('../content/articles/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}')
 ---
-<Article title={home.frontmatter.title} article={home} description={home.frontmatter.description} slug={home.frontmatter.slug}>
+<Article title={home.frontmatter.title} article={home} description={home.frontmatter.description} slug={home.frontmatter.slug} theme="mocha">
   <home.Content />
   {allPosts.map((post) => <li><a href={post.frontmatter.slug}>{post.frontmatter.title}</a></li>)}
 </Article>

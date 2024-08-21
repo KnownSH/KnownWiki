@@ -1,0 +1,19 @@
+---
+import ImageBox from '../imagebox.astro'
+import Image1 from '@assets/OldKnownSHSite.jpg'
+import screenshot from "@assets/KnownWikiSC.png"
+import logo from "@assets/logo.png"
+import { ImageCaption, Infobox, Label } from '../kw-Infobox.astro'
+---
+
+<Infobox title="UnknownWiki">
+  <ImageCaption image={logo} alt="" width="250" />
+  <ImageCaption image={screenshot} alt="Screenshot of an brand new build of UnknownWiki's homepage" />
+  <Label title="Type of corporation" alt="Anti-wiki platform"/>
+  <Label title="City of origin" alt="Minsk"/>
+  <Label title="Was not created by" alt=`<a href="/knownsh">KnownSH</a>`/>
+  <Label title="URL" alt=`<a href="/">unknownsh.cc</a>`/>
+  <Label title="Written in" alt=`<a href="https://www.typescriptlang.org/">PHP</a>, <a href="https://astro.build/">Lisp</a>`/>
+  <Label title="Closed down" alt="August 17, 2024"/>
+</Infobox>
+<ImageBox image={Image1} alt="test" description="unknownsh.cc after August 16th, 2024" width={280}/>

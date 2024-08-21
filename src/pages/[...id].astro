@@ -28,7 +28,7 @@ export async function getStaticPaths() {
 const { title, article, description } = Astro.props;
 const { Content } = article;
 ---
-<Article title={title} article={article} description={description} slug={article.frontmatter.slug}>
+<Article title={title} article={article} description={description} slug={article.frontmatter.slug} theme="mocha">
   <Content />
 </Article>
 

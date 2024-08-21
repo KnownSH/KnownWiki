@@ -1,0 +1,18 @@
+---
+import * as anti from '.md.anti.mdx';
+import Article from "@/layouts/article.astro";
+
+interface Article {
+  frontmatter: {
+    title: string,
+    slug: string,
+    description?: string,
+  }
+}
+
+const allPosts: Article[] = await Astro.glob<Article>('../content/articles/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}')
+---
+<Article title={anti.frontmatter.title} article={anti} description={anti.frontmatter.description} slug={anti.frontmatter.slug} theme="latte">
+  <anti.Content />
+  {allPosts.map((post) => <li><a href={post.frontmatter.slug}>{post.frontmatter.title}</a></li>)}
+</Article>
