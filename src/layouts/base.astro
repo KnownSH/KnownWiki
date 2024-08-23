@@ -1,5 +1,6 @@
 ---
 import { ViewTransitions } from "astro:transitions";
+import Themes from "astro-themes";
 
 interface Props {
   title: string,
@@ -15,10 +16,11 @@ const { title, theme } = Astro.props;
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
-    <ViewTransitions fallback="none"/>
+    <ViewTransitions fallback="none" />
+    <Themes />
     <slot name="head" />
   </head>
-  <body class=`${theme} bg-base`>
+  <body class=`bg-base ${theme}`>
     <slot />
   </body>
 </html>

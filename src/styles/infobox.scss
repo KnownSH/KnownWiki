@@ -28,3 +28,7 @@ div { @apply block }
   }
   @apply text-center align-top;
 }
+
+.legend-color {
+  @apply inline-block min-w-[1.25em] border-surface0 border-[1px] h-5 leading-[1.25] text-center
+}

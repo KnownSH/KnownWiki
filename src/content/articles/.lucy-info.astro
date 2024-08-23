@@ -1,0 +1,21 @@
+---
+import { ImageCaption, Infobox, Label } from "@components/kw-Infobox.astro";
+import ColorLabel from "@components/infoboxes/ColorLabel.astro";
+import LucySit from "@assets/lucysit.png";
+import Imagebox from "@components/imagebox.astro";
+import LucyRef from "@assets/lucyref.png";
+---
+<Infobox title="Lucy">
+  <ImageCaption image={LucySit} alt="A drawing of Lucy by Dovey" width={200} />
+  <Label title="Created" alt="2022"/>
+    <Label title="Age" alt="17 years old (as of 2024)"/>
+    <Label title="Birthday" alt="August 2, 2007"/>
+    <Label title="Height" alt="5'10"/>
+    <Label title="Pronouns" alt="she/her 🏳️‍⚧️ "/>
+    <Label title="Colors">
+      <ColorLabel color="#9C2C30" text="self"/><ColorLabel color="#5F3D33" text="self"/><br>
+      <ColorLabel color="#FFC39C" text="self" flip={true}/><ColorLabel color="#131214" text="self"/><br>
+    </Label>
+</Infobox>
+
+<Imagebox image={LucyRef} description="A reference sheet of Lucy" width={275} />

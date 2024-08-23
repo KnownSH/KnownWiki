@@ -1,7 +1,7 @@
 ---
 interface Props {
   title: string,
-  alt: string,
+  alt?: string,
 }
 const {title, alt} = Astro.props;
 ---
@@ -10,6 +10,8 @@ const {title, alt} = Astro.props;
     {title}
   </th>
   <td>
-    <div set:html={alt} />
+    {(alt && <div set:html={alt}>
+      <slot />
+    </div>) ?? <slot />}
   </td>
 </tr>

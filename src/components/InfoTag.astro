@@ -1,0 +1,34 @@
+---
+const themes = {
+  note: "!bg-blue/20 border-blue",
+  caution: "!bg-yellow/20 border-yellow",
+  danger: "!bg-red/20 border-red",
+  tip: "!bg-mauve/20 border-mauve",
+}
+
+const templates = {
+  wip: "🔨 This article is currently a work-in-progress! Placeholder values may be prevalent throughout the article as well as abrupt endings to text.",
+}
+
+interface Props {
+  type: keyof typeof themes,
+  boilerplate: keyof typeof templates,
+}
+
+const { type, boilerplate } = Astro.props;
+const theme = themes[type];
+const template = templates[boilerplate];
+---
+
+<table class=`${theme} border-[1px] border-l-[10px] mx-[10%] mb-2 w-[80%] box-border text-[100%] table border-separate border-spacing-1`>
+  <tbody class="table-row-group align-middle border-inherit">
+    <tr class="table-row align-[inherit] border-inherit border-separate indent-[initial]">
+      <td class="border-none px-1 py-2 table-cell align-[inherit]">
+        <div class="mbox-text-span">
+          {template}
+          <slot />
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
